@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+  Archivo: presupuesto.html
+  Descripción: Formulario para solicitar presupuestos personalizados.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orbayu – Solicitar Presupuesto</title>
+  <meta name="description" content="Solicita tu presupuesto personalizado para productos artesanales en piel. Sin compromiso.">
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/estilos.css">
+  <style>
+    /* Mensaje de éxito */
+    .mensaje-exito {
+      display: none;
+      background: #d4edda;
+      border: 2px solid #28a745;
+      color: #155724;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      text-align: center;
+      animation: aparecer 0.5s ease;
+    }
+    
+    .mensaje-exito.visible {
+      display: block;
+    }
+    
+    .mensaje-exito h3 {
+      margin: 0 0 0.5rem;
+      color: #155724;
+      font-size: 1.3rem;
+    }
+    
+    .mensaje-exito p {
+      margin: 0.3rem 0;
+    }
+    
+    .mensaje-exito .icono {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="header-inner">
+      
+      <div class="header-left">
+        <a href="index.html" class="marca">ORBAYU</a>
+      </div>
+
+      <div class="header-center">
+        <a href="index.html">
+          <img src="img/logo.png" alt="Logo Orbayu">
+        </a>
+      </div>
+
+      <nav class="header-right main-nav">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="productos.html" class="nav-link">Productos</a>
+        <a href="presupuesto.html" class="nav-link active">Presupuesto</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="container section">
+    
+    <h1>Solicitar presupuesto</h1>
+    
+    <!-- Usamos :valid y :target para mensajes de éxito -->
+    <div id="exito" class="mensaje-exito">
+      <div class="icono">✓</div>
+      <h3>¡Solicitud enviada con éxito!</h3>
+      <p>Hemos recibido su solicitud correctamente.</p>
+      <p>Nos pondremos en contacto con usted lo antes posible.</p>
+      <a href="#" class="btn">Volver</a>
+    </div>
+    
+    <form action="#exito" class="form-presupuesto">
+      
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" 
+        placeholder="Ej: Rodrigo Prim" 
+        required 
+        title="Por favor, introduce tu nombre completo">
+      
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" 
+        placeholder="tu@email.com" 
+        required
+        title="Introduce un email válido">
+      
+      <label for="telefono">Teléfono de contacto</label>
+      <input type="tel" id="telefono" name="telefono" 
+        placeholder="Ej: 612345678" 
+        pattern="[0-9]{7,15}"
+        required
+        title="Introduce un número de teléfono válido">
+      
+      <label for="mensaje">Cuéntanos qué necesitas</label>
+      <textarea id="mensaje" name="mensaje" rows="5" 
+        placeholder="Describe el producto que buscas o solicita más información..." 
+        required
+        title="Por favor, describe tu consulta"></textarea>
+      
+      <label class="checkbox-row">
+        <input type="checkbox" id="privacidad" required>
+        He leído y acepto la <a href="PV.html" target="_blank">Política de Privacidad</a>
+      </label>
+      
+      <button type="submit" class="btn">Enviar solicitud</button>
+      
+    </form>
+    
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-policies">
+        <h3>Nuestras Políticas</h3>
+  <a href="TyC.html">Términos y Condiciones</a>
+        <a href="PV.html">Política de Privacidad</a>
+      </div>
+      
+      <div class="footer-social">
+        <div class="social-iconos">
+          <a href="https://facebook.com/orbayu" target="_blank">
+            <img src="img/iconos/facebook.svg" alt="Facebook">
+          </a>
+          <a href="https://twitter.com/orbayu" target="_blank">
+            <img src="img/iconos/x.svg" alt="X">
+          </a>
+        </div>
+        <div class="legal">
+          © <span id="year4"></span> Orbayu – Todos los derechos reservados
+        </div>
+      </div>
+      
+      <div class="footer-contact">
+        <h3>Contacto</h3>
+        <p>Calle Ildefonso Sánchez del Río, 5<br>33001 Oviedo, Asturias<br>Spain</p>
+        <p>Tel: <a href="tel:+34985118700">985 11 87 00</a></p>
+        <p>Email: <a href="mailto:info@orbayu.es">info@orbayu.es</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById('year4').textContent = new Date().getFullYear();
+    
+    // Manejo del formulario
+    const formulario = document.getElementById('formularioPresupuesto');
+    const mensajeExito = document.getElementById('mensajeExito');
+    
+    formulario.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validar el formulario
+      if (this.checkValidity()) {
+        // Ocultar el formulario
+        formulario.style.display = 'none';
+        
+        // Mostrar mensaje de éxito
+        mensajeExito.classList.add('visible');
+        
+        // Scroll suave hacia arriba
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        
+        // Opcional: resetear el formulario después de unos segundos
+        setTimeout(() => {
+          formulario.reset();
+        }, 1000);
+        
+      } else {
+        // Mostrar los mensajes de validación del navegador
+        this.reportValidity();
+      }
+    });
+  </script>
+  
+</body>
+</html>

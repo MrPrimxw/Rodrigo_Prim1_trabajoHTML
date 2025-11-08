@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+  Archivo: contacto.html
+  Descripción: Página de contacto de Orbayu (dirección, mapa y formulario rápido).
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orbayu – Contacto</title>
+  <meta name="description" content="Contacta con Orbayu. Visítanos en Plaza del Arenal, 2 en Jerez o escríbenos para cualquier consulta.">
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="header-inner">
+      
+      <div class="header-left">
+  <a href="index.html" class="marca">ORBAYU</a>
+      </div>
+
+      <div class="header-center">
+        <a href="index.html">
+          <img src="img/logo.png" alt="Logo Orbayu">
+        </a>
+      </div>
+
+      <nav class="header-right main-nav">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="productos.html" class="nav-link">Productos</a>
+        <a href="presupuesto.html" class="nav-link">Presupuesto</a>
+        <a href="contacto.html" class="nav-link active">Contacto</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="container section">
+    
+    <h1>Contacto</h1>
+    
+    <div class="contact-grid">
+      
+      <!-- Información y mapa -->
+      <div>
+        <h2>Visítanos</h2>
+        
+        <div class="mapa">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d721.402722387938!2d-5.8419496119874825!3d43.36719859571872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd368c8d8ef36cc1%3A0xad3c9f72418d6b46!2sAcademia%20de%20Oposiciones%20y%20Cursos%20Davante%20MasterD%20%7C%20Oviedo!5e1!3m2!1sen!2ses!4v1762536716616!5m2!1sen!2ses"
+            width="100%" 
+            height="300" 
+            style="border:0; border-radius:10px;"
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de Orbayu en Oviedo">
+          </iframe>
+        </div>
+        
+    <p><strong>Dirección:</strong><br>
+    Calle Ildefonso Sánchez del Río, 5 – 33001 Oviedo, Asturias (Spain)</p>
+        
+    <p><strong>Teléfono:</strong><br>
+    <a href="tel:+34985118700">985 11 87 00</a></p>
+        
+  <p><strong>Email:</strong><br>
+  <a href="mailto:info@orbayu.es">info@orbayu.es</a></p>
+      </div>
+
+      <!-- Formulario de contacto -->
+      <div>
+        <section class="form-rapido">
+          <h2>Formulario Rápido</h2>
+          <p class="lead">Envíanos tu consulta o solicita tu presupuesto sin compromiso.</p>
+
+          <!-- Mensaje de éxito -->
+          <div id="contactoExito" class="mensaje-exito">
+            <div class="icono">✓</div>
+            <h3>¡Mensaje enviado con éxito!</h3>
+            <p>Gracias por contactar con nosotros.</p>
+            <p>Te responderemos lo antes posible.</p>
+            <a href="#" class="btn">Volver</a>
+          </div>
+
+          <form action="#contactoExito" method="post" class="form-rapido">
+            <input type="text" 
+              name="nombre" 
+              placeholder="Tu nombre" 
+              required
+              pattern="[A-Za-zÁáÉéÍíÓóÚúÑñ\s]{2,50}"
+              title="Por favor, introduce tu nombre completo (solo letras y espacios)">
+            
+            <input type="email" 
+              name="email" 
+              placeholder="Tu correo electrónico" 
+              required
+              title="Por favor, introduce un email válido">
+            
+            <input type="tel" 
+              name="telefono" 
+              placeholder="Tu teléfono (opcional)"
+              pattern="[0-9]{9,15}"
+              title="Introduce un número de teléfono válido (opcional)">
+            
+            <textarea 
+              name="mensaje" 
+              placeholder="Escribe tu mensaje..." 
+              rows="5" 
+              required
+              minlength="10"
+              title="Por favor, escribe un mensaje de al menos 10 caracteres"></textarea>
+
+            <label class="checkbox-row">
+              <input type="checkbox" required name="privacidad">
+              He leído y acepto la <a href="PV.html" target="_blank">Política de Privacidad</a>
+            </label>
+
+            <button type="submit" class="btn">Enviar mensaje</button>
+          </form>
+        </section>
+      </div>
+      
+    </div>
+    
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-policies">
+        <h3>Nuestras Políticas</h3>
+        <a href="TyC.html">Términos y Condiciones</a>
+        <a href="PV.html">Política de Privacidad</a>
+      </div>
+      
+      <div class="footer-social">
+        <div class="social-iconos">
+          <a href="https://facebook.com/orbayu" target="_blank">
+            <img src="img/iconos/facebook.svg" alt="Facebook">
+          </a>
+          <a href="https://twitter.com/orbayu" target="_blank">
+            <img src="img/iconos/x.svg" alt="X">
+          </a>
+        </div>
+        <div class="legal">
+          © <span id="year3"></span> Orbayu – Todos los derechos reservados
+        </div>
+      </div>
+      
+      <div class="footer-contact">
+        <h3>Contacto</h3>
+        <p>Calle Ildefonso Sánchez del Río, 5<br>33001 Oviedo, Asturias<br>Spain</p>
+        <p>Tel: <a href="tel:+34985118700">985 11 87 00</a></p>
+        <p>Email: <a href="mailto:info@orbayu.es">info@orbayu.es</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <span class="year">2025</span>
+  
+</body>
+</html>
