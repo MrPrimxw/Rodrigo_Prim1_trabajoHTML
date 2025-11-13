@@ -991,6 +991,11 @@ span#year::after, span#year2::after, span#year3::after, span#year4::after {
   }
 }
 
+/* Titulo de solicitud de presupuesto */
+main h1 {
+  text-align: center;
+}
+
 /* Formulario de presupuesto personalizado */
 .form-presupuesto {
   max-width: 640px;
