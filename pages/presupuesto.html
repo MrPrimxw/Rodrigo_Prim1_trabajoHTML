@@ -11,50 +11,6 @@
   <meta name="description" content="Solicita tu presupuesto personalizado para productos artesanales en piel. Sin compromiso.">
   <link rel="icon" href="../img/logo.png" type="image/png">
   <link rel="stylesheet" href="../css/estilos.css">
-  <style>
-    /* Mensaje de éxito */
-    .mensaje-exito {
-      display: none;
-      background: #d4edda;
-      border: 2px solid #28a745;
-      color: #155724;
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin-bottom: 2rem;
-      text-align: center;
-      animation: aparecer 0.5s ease;
-    }
-    
-    .mensaje-exito.visible {
-      display: block;
-    }
-    
-    .mensaje-exito h3 {
-      margin: 0 0 0.5rem;
-      color: #155724;
-      font-size: 1.3rem;
-    }
-    
-    .mensaje-exito p {
-      margin: 0.3rem 0;
-    }
-    
-    .mensaje-exito .icono {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    @keyframes aparecer {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
 </head>
 <body>
   
@@ -85,13 +41,13 @@
     
     <h1>Solicitar presupuesto</h1>
     
-    <!-- Usamos :valid y :target para mensajes de éxito -->
+    <!-- Mensaje de éxito con :target -->
     <div id="exito" class="mensaje-exito">
       <div class="icono">✓</div>
       <h2>¡Solicitud enviada con éxito!</h2>
       <p>Hemos recibido su solicitud correctamente.</p>
       <p>Nos pondremos en contacto con usted lo antes posible.</p>
-      <a href="#" class="btn">Volver</a>
+      <a href="presupuesto.html" class="btn">Volver</a>
     </div>
     
     <form action="#exito" class="form-presupuesto">
@@ -100,13 +56,15 @@
       <input type="text" id="nombre" name="nombre" 
         placeholder="Ej: Rodrigo Prim" 
         required 
-        title="Por favor, introduce tu nombre completo">
+        pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,50}"
+        title="Por favor, introduce tu nombre completo (solo letras y espacios)">
       
       <label for="email">Correo electrónico</label>
       <input type="email" id="email" name="email" 
         placeholder="tu@email.com" 
         required
-        title="Introduce un email válido">
+        pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+        title="Introduce un email válido (ej: usuario@dominio.com)">
       
       <label for="telefono">Teléfono de contacto</label>
       <input type="tel" id="telefono" name="telefono" 
@@ -119,10 +77,11 @@
       <textarea id="mensaje" name="mensaje" rows="5" 
         placeholder="Describe el producto que buscas o solicita más información..." 
         required
-        title="Por favor, describe tu consulta"></textarea>
+        minlength="10"
+        title="Por favor, describe tu consulta con al menos 10 caracteres"></textarea>
       
       <label class="checkbox-row">
-        <input type="checkbox" id="privacidad" required>
+        <input type="checkbox" id="privacidad" name="privacidad" required>
         He leído y acepto la <a href="./PV.html" target="_blank">Política de Privacidad</a>
       </label>
       
@@ -136,7 +95,7 @@
     <div class="container footer-inner">
       <div class="footer-policies">
         <h3>Nuestras Políticas</h3>
-  <a href="./TyC.html">Términos y Condiciones</a>
+        <a href="./TyC.html">Términos y Condiciones</a>
         <a href="./PV.html">Política de Privacidad</a>
       </div>
       
@@ -163,42 +122,7 @@
     </div>
   </footer>
 
-  <script>
-    // Año dinámico
-    document.getElementById('year4').textContent = new Date().getFullYear();
-    
-    // Manejo del formulario
-    const formulario = document.getElementById('formularioPresupuesto');
-    const mensajeExito = document.getElementById('mensajeExito');
-    
-    formulario.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Validar el formulario
-      if (this.checkValidity()) {
-        // Ocultar el formulario
-        formulario.style.display = 'none';
-        
-        // Mostrar mensaje de éxito
-        mensajeExito.classList.add('visible');
-        
-        // Scroll suave hacia arriba
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-        
-        // Opcional: resetear el formulario después de unos segundos
-        setTimeout(() => {
-          formulario.reset();
-        }, 1000);
-        
-      } else {
-        // Mostrar los mensajes de validación del navegador
-        this.reportValidity();
-      }
-    });
-  </script>
+  <span class="year">2025</span>
   
 </body>
 </html>
